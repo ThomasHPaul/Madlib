@@ -91,9 +91,5 @@ namespace Madlib
             Console.WriteLine("Press enter to exit");
             Console.ReadKey();
         }
-
     }
-
-    //How to write unit tests for text application?
-    //tupee, slim, itchy, expensive, head, chrome dome, ford head, oily, scalp, crown
 }
