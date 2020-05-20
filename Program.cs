@@ -16,21 +16,9 @@ namespace Madlib
     {
         //declare variables
         const int NUMOFWORDS = 10;
+        static string GameTitle;
         static List<string> Words = new List<string> { };
-
-        static string[] Prompts =
-        {
-            "noun",
-            "adjective",
-            "adjective",
-            "adjective",
-            "noun",
-            "noun",
-            "noun",
-            "adjective",
-            "adjective",
-            "noun"
-        };
+        static string[] Prompts = {"noun", "adjective", "adjective", "adjective", "noun", "noun", "noun", "adjective", "adjective", "noun"};
 
         public static void Run()
         {
@@ -58,11 +46,21 @@ namespace Madlib
             {
                 Console.WriteLine($"Please enter a/an {Prompts[i]}: ");
                 Words.Add(Console.ReadLine());
-            }           
+            }
+
+            Console.Clear();
         }
 
         static void WriteStory()
         {
+            //concatenate strings to make a title
+            GameTitle = $"The {Words[1]} {Words[2]} {Words[0]}";
+
+            //enables capital case title
+            TextInfo TitleCase = new CultureInfo("en-US", false).TextInfo;
+            GameTitle = TitleCase.ToTitleCase(GameTitle);
+            Console.Title = GameTitle;
+
             //write out finished story
             string Story = $"They all agreed that it was a huge {Words[0]}, {Words[1]}, {Words[2]}, and {Words[3]}. " +
                            $"I have cross - examined these men, one of them a hard-headed {Words[4]}, one a {Words[5]}, " +
